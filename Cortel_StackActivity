@@ -1,0 +1,67 @@
+import java.util.*;
+
+class FruitBasket {
+    public static void main(String[] args) {
+        Stack basketlist = new Stack();
+        Stack basket = new Stack();
+        Scanner scan = new Scanner(System.in);
+        
+        basketlist.push("apple");
+        basketlist.push("orange");
+        basketlist.push("mango");
+        basketlist.push("guava");
+        
+        System.out.println("Catch and eat any of these fruits:" + basketlist);
+        System.out.print("How many fruits would you like to catch? ");
+        int amount = scan.nextInt();
+        
+        System.out.println("Choose a fruit to catch. Press A, O, M, or G.");
+        for(int i = 1; i <= amount; i++){
+            int ctr = 0;
+            while (ctr == 0)
+            {
+                System.out.print("Fruit " + i + " of " + amount + ":");
+                String choice = scan.next();
+            
+                if(choice.equalsIgnoreCase("A")){
+                    basket.push("apple");
+                    ctr++;
+                }
+                else if(choice.equalsIgnoreCase("O")){
+                    basket.push("orange");
+                    ctr++;
+                }
+                else if(choice.equalsIgnoreCase("M")){
+                    basket.push("mango");
+                    ctr++;
+                }
+                else if(choice.equalsIgnoreCase("G")){
+                    basket.push("guava");
+                    ctr++;
+                }
+                else{
+                    System.out.println("Wrong Input! Try Again.");
+                }
+            }
+        }
+        
+        System.out.println("Your basket now has: " + basket);
+        while(basket.isEmpty() == false){
+            System.out.print("Press E to eat a fruit. ");
+            String eat = scan.next();
+        
+            if(eat.equalsIgnoreCase("e")){
+                basket.pop();
+                if(basket.isEmpty() == true){
+                    System.out.println("No more fruits");
+                }
+                else{
+                    System.out.println("Fruit(s) in the basket: " + basket);
+                }
+            }
+            else{
+                System.out.println("wrong input");
+            }
+        }
+    }
+}
