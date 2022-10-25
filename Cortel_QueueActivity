@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class MovieTime {
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        int total = 3;
+        int ctr = 1;
+        
+        Queue movie = new LinkedList();
+        Queue snacks = new LinkedList();
+        
+        for(int x=1; x<=total; x++){
+            System.out.print("Enter movie " + x + " of " + total + ": ");
+            String input = scan.nextLine();
+            
+            movie.offer(input);
+        }
+        for(int j=1; j<=total; j++){
+            System.out.print("Enter snack " + j + " of " + total + ": ");
+            String input2 = scan.nextLine();
+            
+            snacks.offer(input2);
+        }
+        System.out.println("Movies to watch are :deque(" + movie + ")");
+        System.out.println("Snacks available are : deque(" + snacks + ")");
+        
+        System.out.println("Press S each time you finish a snack.");
+        while(snacks.size()!=0){
+            String input3 = scan.nextLine();
+            
+            if(input3.equalsIgnoreCase("S")){
+                snacks.poll();
+            }
+            if(snacks.size()==0){
+                System.out.println("No more snacks");
+            }
+            else{
+                System.out.println("deque(" + snacks +")");
+            }
+        }
+    }
+}
