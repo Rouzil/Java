@@ -1,0 +1,29 @@
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+public class NodesPractice {
+    JFrame frame; 
+
+    NodesPractice(){
+    frame = new JFrame();
+    
+    DefaultMutableTreeNode food = new DefaultMutableTreeNode("Food");
+    DefaultMutableTreeNode appetizer = new DefaultMutableTreeNode("Drink");
+    DefaultMutableTreeNode dessert = new DefaultMutableTreeNode("Dessert"); 
+    
+    food.add(appetizer);
+    food.add(dessert);
+
+    JTree box = new JTree();
+    frame.add(box);
+    frame.setSize(500,500);
+    frame.setVisible(true);
+}
+
+
+public static void main(String[] args) {
+    new NodesPractice();
+}
+
+}
+
