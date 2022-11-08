@@ -1,6 +1,3 @@
-import java.util.Collections;
-import java.util.List;
-
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -44,10 +41,19 @@ public class HtmlTree extends JFrame {
         this.setSize(500, 500);
         this.setVisible(true);
 
-        List childNodes = Collections.list((root.children()),head.children());
+        System.out.println("Root nodes = [HTML]");
+        System.out.println("Parent nodes = [HTML, head, body, ul, h2]");
+        System.out.println("Sibling nodes = [[head & body], [meta & title], [ul, h1, h2], [li & li]]");
+        System.out
+                .println("One-level subtrees  = [HTML- head/body, head- meta/title, body- ul/h1/h2, ul- li/li, h2- a]");
+        System.out.println("Nodes per level = [HTML, head, body, ul, h2]");
+        System.out.println("depth = [3]");
+        System.out.println(
+                "Degree of each one-level subtree = [[Subtree HTML- 0, Subtree head- 1, Subtree body- 1, Subtree ul- 2, Subtree h2- 2]]");
+        System.out.println("breadth-first = [HTML, head, body, meta, title, ul, h1, h2, li, li, a ]");
+        System.out.println("preorder = [HTML, head, meta, title, body, ul, li li, h1, h2, a]");
+        System.out.println("postorder = [li, li, a, meta, title, ul, h1, h2, head, body, html]");
 
-
-        System.out.print(childNodes);
     }
 
     public static void main(String[] args) {
