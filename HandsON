@@ -1,0 +1,57 @@
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+public class HtmlTree extends JFrame {
+    JTree html;
+
+    HtmlTree() {
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("html");
+        DefaultMutableTreeNode head = new DefaultMutableTreeNode("head");
+        DefaultMutableTreeNode body = new DefaultMutableTreeNode("body");
+
+        root.add(head);
+        root.add(body);
+
+        DefaultMutableTreeNode meta = new DefaultMutableTreeNode("meta");
+        DefaultMutableTreeNode title = new DefaultMutableTreeNode("title");
+
+        head.add(meta);
+        head.add(title);
+
+        DefaultMutableTreeNode ul = new DefaultMutableTreeNode("ul");
+        DefaultMutableTreeNode h1 = new DefaultMutableTreeNode("h1");
+        DefaultMutableTreeNode h2 = new DefaultMutableTreeNode("h2");
+
+        body.add(ul);
+        body.add(h1);
+        body.add(h2);
+
+        DefaultMutableTreeNode li = new DefaultMutableTreeNode("li");
+        DefaultMutableTreeNode li2 = new DefaultMutableTreeNode("li");
+
+        ul.add(li);
+        ul.add(li2);
+
+        DefaultMutableTreeNode a = new DefaultMutableTreeNode("a");
+        h2.add(a);
+        html = new JTree(root);
+        add(html);
+
+        this.setTitle("JTree Example");
+        this.setSize(500, 500);
+        this.setVisible(true);
+
+        List childNodes = Collections.list((root.children()),head.children());
+
+
+        System.out.print(childNodes);
+    }
+
+    public static void main(String[] args) {
+        new HtmlTree();
+
+    }
+}
